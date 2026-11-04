@@ -1,0 +1,68 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Tests / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local data, embeddings, and indexes (downloaded or generated)
+data/raw/
+data/processed/
+data/embeddings/
+data/indexes/
+
+# Experiment run artifacts (keep experiment_table.csv)
+experiments/runs/
+
+# Model / Hugging Face caches
+.cache/
+huggingface/
+models/
+*.bin
+*.pt
+*.ckpt
+*.safetensors
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

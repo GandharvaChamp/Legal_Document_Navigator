@@ -1,0 +1,26 @@
+run_name: baseline_dense
+seed: 42
+
+data:
+  corpus_dir: data/raw/corpus
+  benchmarks_dir: data/raw/benchmarks
+  split: dev
+
+chunking:
+  method: recursive
+  chunk_size: 512        # characters
+  overlap: 64            # characters
+
+embedding:
+  model: BAAI/bge-base-en-v1.5            # you will choose this before the indexing step
+
+retrieval:
+  type: dense            # dense | bm25 | hybrid_rrf | hybrid_weighted
+  top_k: 10
+
+rerank:
+  enabled: false
+
+generation:
+  model: TBD             # chosen later, for the Groq LLM steps
+  temperature: 0

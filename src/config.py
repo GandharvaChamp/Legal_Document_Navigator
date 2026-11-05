@@ -26,12 +26,14 @@ class ChunkingCfg:
 @dataclass
 class EmbeddingCfg:
     model: str
+    query_variant: str = "full_instr"   # full_instr | full_plain | question_instr | question_plain
 
 
 @dataclass
 class RetrievalCfg:
     type: str  # dense | bm25 | hybrid_rrf | hybrid_weighted
     top_k: int
+    depth: int = 100                    # ranked results saved per question
 
 
 @dataclass
@@ -91,3 +93,13 @@ def start_run(cfg: Config, config_path: str) -> Path:
     with open(run_dir / "config_resolved.json", "w", encoding="utf-8") as f:
         json.dump(asdict(cfg), f, indent=2)
     return run_dir
+
+
+def chunks_path(cfg) -> Path:
+    c = cfg.chunking
+    return Path("data/processed") / f"chunks_{c.method}_{c.chunk_size}_{c.overlap}.jsonl"
+
+
+def embeddings_dir(cfg) -> Path:
+    return Path("data/embeddings") / cfg.embedding.model.split("/")[-1]
+

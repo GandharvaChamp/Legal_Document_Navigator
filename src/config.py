@@ -30,10 +30,17 @@ class EmbeddingCfg:
 
 
 @dataclass
+# class RetrievalCfg:
+#     type: str  # dense | bm25 | hybrid_rrf | hybrid_weighted
+#     top_k: int
+#     depth: int = 100                    # ranked results saved per question
+
 class RetrievalCfg:
     type: str  # dense | bm25 | hybrid_rrf | hybrid_weighted
     top_k: int
-    depth: int = 100                    # ranked results saved per question
+    depth: int = 100
+    bm25_k1: float = 1.5
+    bm25_b: float = 0.75
 
 
 @dataclass
